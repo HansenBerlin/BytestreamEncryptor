@@ -1,6 +1,8 @@
-﻿package BankClasses.account;
+﻿package Interfaces;
 import java.io.Serializable;
 import java.util.List;
+
+import BankClasses.account.Account;
 import Controller.User;
 
 public interface IBank extends Serializable

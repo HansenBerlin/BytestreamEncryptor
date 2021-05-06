@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.ThreadLocalRandom;
 
 import BankClasses.account.Bank;
-import BankClasses.account.IBank;
+import Interfaces.IBank;
 
 public class SecureAccountsController implements Serializable
 {

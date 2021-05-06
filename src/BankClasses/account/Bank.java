@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Controller.User;
+import Interfaces.IBank;
 
 public class Bank implements IBank
 {
