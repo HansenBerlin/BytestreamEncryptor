@@ -1,14 +1,1 @@
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+A simple demonstration how Java can encrypt and save an object in a file and decrypt it again. An object (Bank in this project, containing dummy accounts with properties like balance, account # etc.) gets converted to a byte array and every single byte gets casted from signed to unsigned and saved as an array of ints representing 8 bits. These get switched using a randomly created bytearray and its bits in a onetime-pad like XOR cypher. The key is saved as a string in a file for demo purposes. Decryption works the same way after decoding the password and XOR-ing back in the same manner. The object Bank becomes recreated after it was decrypted. The project contains a factory class to create random Account objects.
