@@ -1,6 +1,5 @@
 ﻿package BankClasses.account.AccountTypes;
 import java.util.List;
-
 import BankClasses.account.*;
 
 public class DepotAccount extends Account
