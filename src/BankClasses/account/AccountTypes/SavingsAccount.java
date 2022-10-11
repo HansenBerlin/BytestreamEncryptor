@@ -1,4 +1,4 @@
-﻿package BankClasses.account.AccountTypes;
+package BankClasses.account.AccountTypes;
 import BankClasses.account.Account;
 
 public class SavingsAccount extends Account

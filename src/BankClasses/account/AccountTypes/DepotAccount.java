@@ -1,6 +1,8 @@
-﻿package BankClasses.account.AccountTypes;
+package BankClasses.account.AccountTypes;
+import BankClasses.account.Account;
+import BankClasses.account.Stock;
+
 import java.util.List;
-import BankClasses.account.*;
 
 public class DepotAccount extends Account
 {

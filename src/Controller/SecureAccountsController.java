@@ -1,22 +1,13 @@
-﻿package Controller;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.io.StreamCorruptedException;
+package Controller;
+import BankClasses.account.Bank;
+import Interfaces.IBank;
+
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.concurrent.ThreadLocalRandom;
-
-import BankClasses.account.Bank;
-import Interfaces.IBank;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class SecureAccountsController implements Serializable
 {
@@ -48,7 +39,7 @@ public class SecureAccountsController implements Serializable
         Bank returnBank = null;
         var loadFile = new FileInputStream("bank.lock");
         var inputStream = new ObjectInputStream(loadFile);
-        byte[] bankAsByte = (byte[])inputStream.readAllBytes();          
+        byte[] bankAsByte = inputStream.readAllBytes();
         inputStream.close();
 
         bankAsByte = decrypt(bankAsByte);
@@ -159,16 +150,25 @@ public class SecureAccountsController implements Serializable
     }
 
 
+    // Change algorithm according to OS https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecureRandom
     private int rNr(int from, int toIncluded)
     {
-        return ThreadLocalRandom.current().nextInt(from, toIncluded + 1);
+        try
+        {
+            return SecureRandom.getInstance("Windows-PRNG").nextInt(from, toIncluded + 1);
+        }
+        catch(NoSuchAlgorithmException e)
+        {
+            System.out.println("PRNG Error: " + e.getMessage());
+            return 0;
+        }
     }
        
 
     private int[] convertBinary(byte signedByte)
     {
         int num = Byte.toUnsignedInt(signedByte);
-        int binary[] = new int[8];
+        int[] binary = new int[8];
         int index = 7;
         while(num > 0)
         {

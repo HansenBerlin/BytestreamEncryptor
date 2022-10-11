@@ -1,16 +1,19 @@
-﻿package Controller;
+package Controller;
+import BankClasses.account.Account;
+import BankClasses.account.AccountTypes.DepotAccount;
+import BankClasses.account.AccountTypes.GiroAccount;
+import BankClasses.account.AccountTypes.SavingsAccount;
+import BankClasses.account.Stock;
+import Interfaces.IBank;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import BankClasses.account.*;
-import BankClasses.account.AccountTypes.*;
-import Interfaces.IBank;
-
 public class AccountFabric
 {
-    private String[] names = {"Robert", "Nico", "Danny", "Corentin", "Hannes", "Kamilla"};
-    private IBank bank;
+    private final String[] names = {"Robert", "Nico", "Danny", "Corentin", "Hannes", "Kamilla"};
+    private final IBank bank;
 
     public AccountFabric(IBank bank)
     {

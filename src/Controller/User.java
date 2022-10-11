@@ -1,8 +1,9 @@
-﻿package Controller;
-import java.util.List;
+package Controller;
 
 import BankClasses.account.Account;
 import Interfaces.IUser;
+
+import java.util.List;
 
 public class User implements IUser
 {

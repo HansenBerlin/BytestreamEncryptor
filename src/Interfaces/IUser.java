@@ -1,14 +1,15 @@
-﻿package Interfaces;
-import java.util.List;
+package Interfaces;
 
 import BankClasses.account.Account;
 
+import java.util.List;
+
 public interface IUser 
 {
-    public List<Account> userAccounts = null;
-    public String userName = null;   
-    public List<Account> getUserAccounts();
-    public String getUserName();
-    public void setUserValues(List<Account> userAccounts, String userName);
+    List<Account> userAccounts = null;
+    String userName = null;
+    List<Account> getUserAccounts();
+    String getUserName();
+    void setUserValues(List<Account> userAccounts, String userName);
  
 }

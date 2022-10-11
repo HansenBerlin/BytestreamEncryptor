@@ -1,13 +1,13 @@
-﻿package BankClasses.account;
-import java.util.ArrayList;
-import java.util.List;
-
+package BankClasses.account;
 import Controller.User;
 import Interfaces.IBank;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bank implements IBank
 {
-    private List<Account> accounts = new ArrayList<Account>();   
+    private final List<Account> accounts = new ArrayList<Account>();
     public List<User> users = new ArrayList<User>();
     
     public boolean addAccount(Account account)

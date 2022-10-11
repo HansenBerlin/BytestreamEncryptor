@@ -1,4 +1,4 @@
-﻿package BankClasses.account;
+package BankClasses.account;
 
 import java.io.Serializable;
 

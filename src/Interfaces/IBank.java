@@ -1,18 +1,18 @@
-﻿package Interfaces;
-import java.io.Serializable;
-import java.util.List;
-
+package Interfaces;
 import BankClasses.account.Account;
 import Controller.User;
 
+import java.io.Serializable;
+import java.util.List;
+
 public interface IBank extends Serializable
 {
-    public List<Account> accounts = null;  
-    public List<User> users = null;
+    List<Account> accounts = null;
+    List<User> users = null;
 
-    public boolean addAccount(Account account);
-    public void deleteAccount(int accountNumber);
-    public int getNumberOfAccounts();
-    public void listAllCustomers();
-    public List<Account> getOneCustomersAccount(String name); 
+    boolean addAccount(Account account);
+    void deleteAccount(int accountNumber);
+    int getNumberOfAccounts();
+    void listAllCustomers();
+    List<Account> getOneCustomersAccount(String name);
 }
