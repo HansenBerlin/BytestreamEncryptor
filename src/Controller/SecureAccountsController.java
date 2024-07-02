@@ -1,6 +1,7 @@
 package Controller;
 import BankClasses.account.Bank;
 import Interfaces.IBank;
+import Utils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -11,10 +12,6 @@ import java.security.SecureRandom;
 
 public class SecureAccountsController implements Serializable
 {
-    public SecureAccountsController()
-    {
-    }
-
     public void saveAccountsToFile(IBank bank) throws IOException
     {
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
@@ -109,7 +106,7 @@ public class SecureAccountsController implements Serializable
     {
         byte[] tempByte = new byte[byteLength];
         for (int i = 0; i < byteLength; i++)         
-            tempByte[i] = (byte)rNr(33, 126);
+            tempByte[i] = (byte)(rNr(93) + 33);
 
         return tempByte; 
     }
@@ -151,11 +148,13 @@ public class SecureAccountsController implements Serializable
 
 
     // Change algorithm according to OS https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecureRandom
-    private int rNr(int from, int toIncluded)
+    private int rNr(int toIncluded)
     {
         try
         {
-            return SecureRandom.getInstance("Windows-PRNG").nextInt(from, toIncluded + 1);
+            return SecureRandom.getInstance("NativePRNG").nextInt(toIncluded + 1);
+            //return SecureRandom.getInstance("Windows-PRNG").nextInt(toIncluded + 1);
+
         }
         catch(NoSuchAlgorithmException e)
         {
